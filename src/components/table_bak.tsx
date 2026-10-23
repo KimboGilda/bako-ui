@@ -1,5 +1,5 @@
-const CLASS_COL = "border border-black p-3";
-const CLASS_ROW = "border border-black p-2 hover:bg-blue-200";
+const CLASS_COL = "font-sans border border-black p-3";
+const CLASS_ROW = "font-sans border border-black p-2 hover:bg-blue-200";
 
 interface TableBakProps {
   columns: string[];
