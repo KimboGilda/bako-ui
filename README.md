@@ -1,32 +1,69 @@
-# React + TypeScript + Vite
+# kimbogilda-ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Small React + Tailwind component library: a button and a table.
 
-Currently, two official plugins are available:
+## Install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install kimbogilda-ui
+```
 
-## React Compiler
+Requires React 18 or newer.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
 
-## Expanding the Oxlint configuration
+Import the stylesheet once, at the root of your app (for example `main.tsx`):
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+```tsx
+import "kimbogilda-ui/styles.css";
+```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+You don't need Tailwind in your own project. The styles are precompiled.
+
+## Usage
+
+```tsx
+import { ButtonBak, TableBak } from "kimbogilda-ui";
+
+function App() {
+  return (
+    <>
+      <TableBak columns={["A", "B"]} rows={["One", "Two"]} />
+      <ButtonBak variant="primary" size="md" onClick={() => console.log("hi")}>
+        New
+      </ButtonBak>
+    </>
+  );
 }
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Components
+
+### ButtonBak
+
+| Prop      | Type                                  | Required | Description                         |
+| --------- | ------------------------------------- | -------- | ----------------------------------- |
+| `variant` | `"primary" \| "destroy" \| "disabled"` | yes      | Visual style. `disabled` also disables the button. |
+| `size`    | `"sm" \| "md" \| "lg"`                 | yes      | Button size.                        |
+| `className` | `string`                            | no       | Extra classes added to the button.  |
+
+It also accepts every native `<button>` prop (`onClick`, `type`, `aria-label`, and so on).
+
+### TableBak
+
+| Prop      | Type       | Required | Description                 |
+| --------- | ---------- | -------- | --------------------------- |
+| `columns` | `string[]` | yes      | Column header labels.       |
+| `rows`    | `string[]` | yes      | Row header labels.          |
+
+## TypeScript
+
+Prop types are exported:
+
+```tsx
+import type { ButtonBakProps, TableBakProps } from "kimbogilda-ui";
+```
+
+## License
+
+MIT
