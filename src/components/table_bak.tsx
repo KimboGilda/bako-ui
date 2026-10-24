@@ -1,5 +1,8 @@
-const CLASS_COL = "font-sans border border-black p-3";
-const CLASS_ROW = "font-sans border border-black p-2 hover:bg-blue-200";
+const CLASS_COL =
+  "px-3 py-2 text-center text-xs font-semibold text-gray-600 bg-gray-100 border border-gray-200";
+
+const CLASS_ROW =
+  "px-3 py-2 text-sm text-gray-700 border border-gray-200 hover:bg-slate-50 transition-colors";
 
 interface TableBakProps {
   columns: string[];
