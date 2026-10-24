@@ -4,7 +4,7 @@ const CLASS_COL =
 const CLASS_ROW =
   "px-3 py-2 text-sm text-gray-700 border border-gray-200 hover:bg-slate-50 transition-colors";
 
-interface TableBakProps {
+export interface TableBakProps {
   columns: string[];
   rows: string[];
 }
@@ -15,7 +15,7 @@ export default function TableBak({ columns, rows }: TableBakProps) {
       <thead>
         <tr>
           {columns.map((c) => (
-            <th className={CLASS_COL} scope="col">
+            <th key={c} className={CLASS_COL} scope="col">
               {c}
             </th>
           ))}

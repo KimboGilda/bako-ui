@@ -1,6 +1,5 @@
 import "./App.css";
-import TableBak from "./components/table_bak.tsx";
-import ButtonBak from "./components/button_bak.tsx";
+import { TableBak, ButtonBak } from "../src";
 
 function App() {
   return (
@@ -10,7 +9,12 @@ function App() {
           columns={["A", "B", "C", "D"]}
           rows={["Nikos", "Danai", "Nefeli", "Cookie"]}
         />
-        <ButtonBak variant={"primary"} size={"md"} children={"New"} />
+        <ButtonBak
+          onClick={() => alert("clicked")}
+          variant={"primary"}
+          size={"md"}
+          children={"New"}
+        />
       </div>
     </>
   );
